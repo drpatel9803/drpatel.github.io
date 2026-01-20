@@ -307,6 +307,24 @@
     <input type="hidden" name="_captcha" value="false">
 
     <button type="submit">Send Message</button>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("IIVsqqwckBnJuVOaW");
+  })();
+
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+      .then(function() {
+        alert("Message sent successfully!");
+        document.getElementById("contact-form").reset();
+      }, function(error) {
+        alert("Failed to send message. Please try again.");
+      });
+  });
+</script>
   </form>
 
   <div class="social-links right-fixed">
@@ -326,32 +344,13 @@
 
 </div>
 </section>
-
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  (function() {
-    emailjs.init("IIVsqqwckBnJuVOaW");
-  })();
-
-  document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
-      .then(function() {
-        alert("Message sent successfully!");
-        document.getElementById("contact-form").reset();
-      }, function(error) {
-        alert("Failed to send message. Please try again.");
-      });
-  });
-</script>
-
 <footer>
   <p>© 2026 Deep Patel | AI & ML Portfolio</p>
 </footer>
 
 </body>
 </html>
+
 
 
 
